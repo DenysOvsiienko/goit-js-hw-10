@@ -31,6 +31,7 @@ const options = {
         progressBarEasing: 'linear',
         pauseOnHover: true,
         position: 'topRight',
+        timeout: 999999,
       });
       startBtnElem.disabled = true;
     } else {
