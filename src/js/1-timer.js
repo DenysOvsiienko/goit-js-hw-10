@@ -22,7 +22,8 @@ const options = {
     userSelectedDate = Date.parse(selectedDates[0]);
     if (userSelectedDate < Date.now()) {
       iziToast.error({
-        iconUrl: './img/errorSvg.svg',
+        iconUrl:
+          'https://raw.githubusercontent.com/GHUserNameDO/goit-js-hw-10/01fc6f6cdb4758e8b4a4cbd9864f88987c63d52c/src/img/errorSvg.svg',
         message: 'Please choose a date in the future',
         messageColor: '#ffffff',
         backgroundColor: '#EF4040',
@@ -31,7 +32,6 @@ const options = {
         progressBarEasing: 'linear',
         pauseOnHover: true,
         position: 'topRight',
-        timeout: false,
       });
       startBtnElem.disabled = true;
     } else {

@@ -10,7 +10,8 @@ formElem.addEventListener('submit', event => {
       if (stateValue === 'fulfilled') {
         resolve(
           iziToast.success({
-            iconUrl: './img/successSvg.svg',
+            iconUrl:
+              'https://raw.githubusercontent.com/GHUserNameDO/goit-js-hw-10/01fc6f6cdb4758e8b4a4cbd9864f88987c63d52c/src/img/successSvg.svg',
             message: `Fulfilled promise in ${delay}ms`,
             messageColor: '#ffffff',
             backgroundColor: '#59A10D',
@@ -24,7 +25,8 @@ formElem.addEventListener('submit', event => {
       } else {
         reject(
           iziToast.error({
-            iconUrl: './img/errorSvg.svg',
+            iconUrl:
+              'https://raw.githubusercontent.com/GHUserNameDO/goit-js-hw-10/01fc6f6cdb4758e8b4a4cbd9864f88987c63d52c/src/img/errorSvg.svg',
             message: `Rejected promise in ${delay}ms`,
             messageColor: '#ffffff',
             backgroundColor: '#EF4040',
