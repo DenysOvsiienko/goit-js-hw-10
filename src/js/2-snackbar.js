@@ -1,5 +1,52 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import errorIcon from '../img/errorSvg.svg';
+import succsessIcon from '../img/successSvg.svg';
+// const formElem = document.querySelector('.form');
+// formElem.addEventListener('submit', event => {
+//   event.preventDefault();
+//   const delay = Number(formElem.delay.value);
+//   const stateValue = formElem.state.value;
+//   const promise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (stateValue === 'fulfilled') {
+//         resolve(
+//           iziToast.success({
+//             iconUrl:
+//               succsessIcon,
+//             message: `Fulfilled promise in ${delay}ms`,
+//             messageColor: '#ffffff',
+//             backgroundColor: '#59A10D',
+//             progressBar: true,
+//             progressBarColor: '#326101',
+//             progressBarEasing: 'linear',
+//             pauseOnHover: true,
+//             position: 'topRight',
+//           })
+//         );
+//       } else {
+//         reject(
+//           iziToast.error({
+//             iconUrl:
+//               errorIcon,
+//             message: `Rejected promise in ${delay}ms`,
+//             messageColor: '#ffffff',
+//             backgroundColor: '#EF4040',
+//             progressBar: true,
+//             progressBarColor: '#B51B1B',
+//             progressBarEasing: 'linear',
+//             pauseOnHover: true,
+//             position: 'topRight',
+//           })
+//         );
+//       }
+//     }, delay);
+//   });
+//   formElem.reset();
+// });
+
+//=============================================================================
+
 const formElem = document.querySelector('.form');
 formElem.addEventListener('submit', event => {
   event.preventDefault();
@@ -8,37 +55,39 @@ formElem.addEventListener('submit', event => {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (stateValue === 'fulfilled') {
-        resolve(
-          iziToast.success({
-            iconUrl:
-              'https://raw.githubusercontent.com/GHUserNameDO/goit-js-hw-10/01fc6f6cdb4758e8b4a4cbd9864f88987c63d52c/src/img/successSvg.svg',
-            message: `Fulfilled promise in ${delay}ms`,
-            messageColor: '#ffffff',
-            backgroundColor: '#59A10D',
-            progressBar: true,
-            progressBarColor: '#326101',
-            progressBarEasing: 'linear',
-            pauseOnHover: true,
-            position: 'topRight',
-          })
-        );
+        resolve(delay);
       } else {
-        reject(
-          iziToast.error({
-            iconUrl:
-              'https://raw.githubusercontent.com/GHUserNameDO/goit-js-hw-10/01fc6f6cdb4758e8b4a4cbd9864f88987c63d52c/src/img/errorSvg.svg',
-            message: `Rejected promise in ${delay}ms`,
-            messageColor: '#ffffff',
-            backgroundColor: '#EF4040',
-            progressBar: true,
-            progressBarColor: '#B51B1B',
-            progressBarEasing: 'linear',
-            pauseOnHover: true,
-            position: 'topRight',
-          })
-        );
+        reject(delay);
       }
     }, delay);
   });
+
+  promise
+    .then(delay =>
+      iziToast.success({
+        iconUrl: succsessIcon,
+        message: `Fulfilled promise in ${delay}ms`,
+        messageColor: '#ffffff',
+        backgroundColor: '#59A10D',
+        progressBar: true,
+        progressBarColor: '#326101',
+        progressBarEasing: 'linear',
+        pauseOnHover: true,
+        position: 'topRight',
+      })
+    )
+    .catch(delay =>
+      iziToast.error({
+        iconUrl: errorIcon,
+        message: `Rejected promise in ${delay}ms`,
+        messageColor: '#ffffff',
+        backgroundColor: '#EF4040',
+        progressBar: true,
+        progressBarColor: '#B51B1B',
+        progressBarEasing: 'linear',
+        pauseOnHover: true,
+        position: 'topRight',
+      })
+    );
   formElem.reset();
 });
